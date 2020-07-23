@@ -13,6 +13,12 @@ class Doctor
      end
    end
 
+   def patient
+    Appointment.all.map do |appointment|
+      appointment.patient
+    end
+  end
+
     def self.all
      @@all
    end
@@ -21,10 +27,5 @@ class Doctor
      Appointment.new(patient, date, self)
    end
 
-   def patients
-       @appointments.collect do |appointment|
-         appointment.patient
-       end
-     end
 
  end
